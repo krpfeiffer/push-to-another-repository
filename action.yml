@@ -1,4 +1,4 @@
-name: 'Copy files to another repository'
+name: 'Copy files to GitHub pages site'
 description: 'Copy and push files from current repository to another repository.'
 inputs:
   source-files:
@@ -12,10 +12,10 @@ inputs:
     required: true
   destination-branch:
     description: '[Optional] set target branch name for the destination repository.'
-    default: 'master'
+    default: 'main'
     required: false
   destination-directory:
-    description: '[Opitonal] Directory to copy files into in the destination repository'
+    description: '[Optional] Directory to copy files into in the destination repository'
     required: false
     default: '.'
   commit-username:
@@ -29,6 +29,10 @@ inputs:
     description: '[Optional] commit message for the output repository. ORIGIN_COMMIT is replaced by the URL@commit in the origin repo'
     default: 'Update from ORIGIN_COMMIT'
     required: false
+  source-branch:
+    description: 'Name of the source branch to copy from'
+    default: 'main'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -41,6 +45,7 @@ runs:
     - ${{ inputs.commit-username }}
     - ${{ inputs.commit-email }}
     - ${{ inputs.commit-message }}
+    - ${{ inputs.source-branch }}
 branding:
-  icon: 'git-commit'
-  color: 'green'
+  icon: 'folder-plus'
+  color: 'blue'

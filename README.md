@@ -15,7 +15,7 @@ The name of the user or organization which owns the destination repository. E.g.
 The name of the repository to copy files to, E.g. `push-files-to-another-repository`
 
 ### `destination-branch` (argument) [optional]
-The branch name for the destination repository. Defaults to `master`.
+The branch name for the destination repository. Defaults to `main`.
 
 ### `destination-directory` (argument) [optional]
 The directory in the destination repository to copy the source files into. Defaults to the destination project root.
@@ -30,6 +30,9 @@ The email to use for the commit in the destination repository.
 The commit message to be used in the output repository. Defaults to "Update from [destination url]@[commit]".
 
 The string `ORIGIN_COMMIT` is replaced by `[destination url]@[commit]`.
+
+### `source-branch` (argument)
+The branch name for the source repository to copy files/directories from. Defaults to `main`.
 
 ### `API_TOKEN_GITHUB` (environment)
 The GitHub API token which allows this action to push to the destination repository.
