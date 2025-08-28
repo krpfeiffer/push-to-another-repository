@@ -58,14 +58,14 @@ Then make the token available to the GitHub Action following the steps:
 
 ## Example usage
 ```yaml
-      - name: Push generated webpage to another repository
-        uses: nkoppel/push-files-to-another-repository@v1.1.4
+      - name: Push readme to pages repository
+        uses: krpfeiffer/push-to-another-repo
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-files: 'webpage/'
-          destination-username: 'nkoppel'
-          destination-repository: 'nkoppel.github.io'
+          source-files: 'README.md'
+          destination-username: 'repo-owner'
+          destination-repository: 'repo-name'
           destination-directory: 'projects/my-project'
-          commit-email: 'nathankoppel0@gmail.com'
+          commit-email: 'name@gmail.com'
 ```
