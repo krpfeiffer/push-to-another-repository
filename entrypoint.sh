@@ -13,6 +13,7 @@ DESTINATION_DIRECTORY="$5"
 COMMIT_USERNAME="$6"
 COMMIT_EMAIL="$7"
 COMMIT_MESSAGE="$8"
+SOURCE_BRANCH="$9"
 
 if [ -z "$COMMIT_USERNAME" ]
 then
@@ -30,7 +31,7 @@ git config --global user.name "$COMMIT_USERNAME"
 # Remove git directory if it exists to prevent errors
 rm -rf .git
 
-git clone "https://$API_TOKEN_GITHUB@github.com/$GITHUB_REPOSITORY.git" repo
+git clone --single-branch --branch "$SOURCE_BRANCH" "https://$API_TOKEN_GITHUB@github.com/$GITHUB_REPOSITORY.git" repo
 
 cd repo
 ls -la
@@ -50,7 +51,7 @@ cd "$CLONE_DIRECTORY"
 echo
 echo "##### Adding git commit #####"
 
-ORIGIN_COMMIT="https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+ORIGIN_COMMIT="https://github.com/$GITHUB_REPOSITORY"
 COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
 
 git add .
