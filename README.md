@@ -62,7 +62,7 @@ Then make the token available to the GitHub Action following the steps:
 ## Example usage
 ```yaml
       - name: Push readme to pages repository
-        uses: krpfeiffer/push-to-another-repo
+        uses: krpfeiffer/push-to-another-repo@1.0.0
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
